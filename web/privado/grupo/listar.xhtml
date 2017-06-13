@@ -1,12 +1,34 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
-    <h:head>
-        <title>Facelet Title</title>
-    </h:head>
-    <h:body>
-        Hello from Facelets
-    </h:body>
-</html>
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ace="http://www.icefaces.org/icefaces/components"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+        <ui:composition template="/templates/template.xhtml">
+         <ui:define name="titulo">Sistema com JSF 2 e acefaces da turma 5N1</ui:define>
+        <ui:define name="conteudo">
+        <h:form id="form">
+            <style type="text/css">
+                /* Important required because row */
+                .ui-datatable-odd {
+                    background-color:lightgray !important;
+                    background-position-y: -1400px; /* IE7 hack */
+                }
+            </style>
+            
+           <ace:dataTable value="#{controleGrupo.dao.lista}" var="obj">
+                <ace:column headerText="ID">
+                    <h:outputLabel value="#{obj.id}"/>
+                </ace:column>
+                <ace:column id="name" headerText="Nome">
+                    <h:outputLabel id="nameCell" value="#{obj.nome}"/>
+                </ace:column>
+            </ace:dataTable>
+        </h:form>
+         </ui:define>
+        </ui:composition>
+ 
 
+</html>
+    
+        
