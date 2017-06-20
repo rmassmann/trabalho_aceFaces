@@ -1,12 +1,49 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ace="http://www.icefaces.org/icefaces/components"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Facelet Title</title>
+        <style type="text/css">
+            .header{height:40px;}
+            .footer{ height: 20px}    
+        </style>
     </h:head>
     <h:body>
-        Hello from Facelets
+        <div class="header">
+            <h1>Trabalho IceFaces</h1>
+        </div>
+        <div class="content">
+             <h:form id="form">
+            <ace:panel  header="Formulario" style="width: 75%;">
+            <h:panelGrid columns="2">
+                    <h:outputLabel value="ID" for="txtid"/>
+                    <ace:textEntry id="txtID" value="#{controleGrupo.objeto.id}" size="5"/> 
+                    <h:outputLabel value="Nome" for="txtNome"/>
+                    <ace:textEntry value="#{controleGrupo.objeto.nome}"
+                                   id="txtNome" size="40" maxlength="40" autocapitalize="on">
+                        <f:validateLength minimum="3" maximum="40"/>
+                    </ace:textEntry>
+                </h:panelGrid>
+                <f:facet name="footer">
+                    <h:panelGrid columns="2">                     
+                            <ace:pushButton value="Cancelar"
+                                            action="#{controleGrupo.cancelar()}"
+                                            immediate="true"/>
+                            <ace:pushButton value="Salvar"
+                                            action="#{controleGrupo.salvar()}"
+                                            />  
+                    </h:panelGrid>
+                </f:facet>
+            </ace:panel>
+        </h:form>
+        </div>
+        <div class="footer">
+            <p>@2017...</p>
+        </div>
     </h:body>
 </html>
 

@@ -129,8 +129,7 @@ public class DAOGenerico<T> {
                 em.getTransaction().begin();
             }
             em.getTransaction().rollback();
-            mensagem = "Erro ao persistir objeto";
-                Util.getMensagemErro(e);
+            mensagem = "Erro ao persistir objeto"+Util.getMensagemErro(e);
             return false;
         }
     }
@@ -147,8 +146,7 @@ public class DAOGenerico<T> {
                 em.getTransaction().begin();
             }
             em.getTransaction().rollback();
-            mensagem = "Erro ao persistir objeto";
-                Util.getMensagemErro(e);
+            mensagem = "Erro ao persistir objeto"+Util.getMensagemErro(e);
             return false;
         }
     }
